@@ -1,0 +1,390 @@
+:root {
+    /* light theme (default, also used when JavaScript is off) */
+    color-scheme: light;
+    --color-accent: forestgreen;
+    --color-button: rebeccapurple;
+    --color-button-text: white;
+    --color-bg: floralwhite;
+    --color-text: #1f1f1f;
+    --color-surface: white;
+    --color-border: dimgray;
+    --color-error: firebrick;
+    --color-valid: forestgreen;
+    --color-warning: darkorange;
+    --font-body: "Times New Roman", Times, Georgia, serif;
+    --content-width: 72rem;
+    --nav-gap: 1.75rem;
+    --space: 2rem;
+}
+
+/* dark theme: theme.js sets data-theme="dark" on the html element */
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --color-accent: #7fd47f;
+    --color-button: #b9a3f0;
+    --color-button-text: #1b1a17;
+    --color-bg: #1b1a17;
+    --color-text: #f2ede3;
+    --color-surface: #2a2824;
+    --color-border: #a8a39a;
+    --color-error: #ff8a80;
+    --color-valid: #7fd47f;
+    --color-warning: #ffb74d;
+}
+
+/* top header - not the dialog’s header on contact.html */
+body > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+/* top left name link */
+body > header > a {
+    font-weight: 700;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* header navigation */
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: var(--nav-gap);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* common footer */
+body > footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-top: 2px solid var(--color-accent);
+}
+
+/* footer navigation */
+body > footer > ul {
+    display: flex;
+    gap: var(--nav-gap);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* shared heading spacing and line height */
+h1, h2, h3 {
+  line-height: 1.2;    
+  margin-top: var(--space);    
+  margin-bottom: 0.5rem; 
+}
+
+/* custom heading size*/
+h1 {
+    font-size: 2.25rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+/* body*/
+body {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    background: var(--color-bg);
+    margin: 0;
+}
+
+/* centered content */
+main {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: var(--space) 1.5rem;
+}
+
+/* item spacing */
+p, ul, ol {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* section spacing */
+section {
+    margin-bottom: var(--space);
+    display: flow-root;
+}
+
+/* button padding, border, background, and cursor */
+button {
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.6em 1.2em;
+    border: 1px solid var(--color-button);
+    border-radius: 0.25em;
+    background: var(--color-button);
+    color: var(--color-button-text);
+    cursor: pointer;
+}
+
+/* smaller theme button so it fits the height of the nav links */
+nav button {
+    font-size: 0.9rem;
+    padding: 0.15em 0.6em;
+}
+
+/* form input and textarea sizing */
+input, textarea {
+    font: inherit;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* form fieldset sizing */
+fieldset {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* featured projects spacing */
+section > div {
+    display: flex;
+    gap: var(--space);
+}
+
+/* featured project sizing */
+section > div > article {
+    flex: 1;
+}
+
+/* images inside any article */
+article img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* image float and spacing */
+section > img {
+    float: left;
+    margin: 0 1.5rem 1rem 0;
+    max-width: 100%;
+    height: auto;
+}
+
+/* project grid layout */
+main > div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space);
+}
+
+/* project grid article spacing */
+main > div > article h2 {
+    margin-top: 0.5rem;
+}
+
+/* media never wider than container */
+img, video, iframe, canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: block;
+}
+
+
+/* field instructions between a label and its control */
+fieldset p {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+}
+
+/* fixed border and reserved icon space so validation never shifts layout */
+input, textarea {
+    border: 2px solid var(--color-border);
+    border-radius: 0.25em;
+    padding: 0.3em 2em 0.3em 0.5em;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    background-repeat: no-repeat;
+    background-position: right 0.5em center;
+    background-size: 1.1em;
+}
+
+/* keep the textarea icon in the top corner, away from the resize handle */
+textarea {
+    background-position: right 0.5em top 0.5em;
+}
+
+/* required fields get an accent edge */
+input:required, textarea:required {
+    border-left: 5px solid var(--color-accent);
+}
+
+/* invalid after the user edits or tries to submit: dashed red border plus warning icon */
+input:user-invalid, textarea:user-invalid {
+    border-color: var(--color-error);
+    border-style: dashed;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23b22222'/%3E%3Cpath d='M12 6v8' stroke='white' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='18' r='1.5' fill='white'/%3E%3C/svg%3E");
+}
+
+/* valid after the user edits: green border plus check icon */
+input:user-valid, textarea:user-valid {
+    border-color: var(--color-valid);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23228b22'/%3E%3Cpath d='M7 12.5l3.5 3.5L17 9' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* dark theme versions of the validation icons */
+:root[data-theme="dark"] input:user-invalid, :root[data-theme="dark"] textarea:user-invalid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23ff8a80'/%3E%3Cpath d='M12 6v8' stroke='%231b1a17' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='18' r='1.5' fill='%231b1a17'/%3E%3C/svg%3E");
+}
+
+:root[data-theme="dark"] input:user-valid, :root[data-theme="dark"] textarea:user-valid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%237fd47f'/%3E%3Cpath d='M7 12.5l3.5 3.5L17 9' fill='none' stroke='%231b1a17' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* headings inside the form message areas */
+#form-errors-area h3, #form-info-area h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+}
+
+/* error area only takes up space while an error is listed */
+#form-errors-area:has(li:not([hidden])) {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border: 2px dashed var(--color-error);
+    border-radius: 0.25em;
+    background: var(--color-surface);
+}
+
+/* list of current errors */
+#error-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 1rem;
+}
+
+/* information area with the character count */
+#form-info-area {
+    margin: 1rem 0;
+    font-size: 1rem;
+}
+
+/* character count: border space is reserved so warnings do not shift text */
+#comments-info {
+    margin: 0;
+    padding-left: 0.5rem;
+    border-left: 5px solid transparent;
+}
+
+/* near the limit: bold text and a marker bar, on top of the changed wording */
+#comments-info[data-state="warning"] {
+    font-weight: 700;
+    border-left-color: var(--color-warning);
+}
+
+/* at the limit */
+#comments-info[data-state="limit"] {
+    font-weight: 700;
+    border-left-color: var(--color-text);
+}
+
+/* theme switch view transition: slow the default cross-fade so it is easy to see */
+::view-transition-old(root), ::view-transition-new(root) {
+    animation-duration: 0.5s;
+}
+
+/* no view transition animation for users who ask for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) {
+        animation: none;
+    }
+}
+
+/* responsive layout for smaller screens */
+@media (max-width: 600px) {
+
+    /* stack header items vertically */
+    body > header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    /* let nav items wrap onto multiple lines */
+    nav ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    /* stack footer items vertically */
+    body > footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    /* stack featured projects vertically */
+    section > div {
+        flex-direction: column;
+    }
+
+    /* stack project grid vertically */
+    main > div {
+        grid-template-columns: 1fr;
+    }
+
+    /* center section images */
+    section > img {
+        float: none;
+        display: block;
+        margin: 0 auto 1rem;
+    }
+}
+
+/* remove underline from nav links */
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* set link color everywhere */
+a {
+    color: var(--color-accent);
+}
+/* restore underline on hover for all links */
+a:hover {
+    color: var(--color-button);
+    text-decoration: underline;   /* nav links have underline removed; this restores it on hover */
+}
+
+/* focus outline for links, buttons, and inputs */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 3px solid var(--color-button);
+    outline-offset: 2px;
+}
+
+/* add external link icon for links starting with http */
+a[href^="http"]::after {
+    content: " \2197";    /* ↗ up arrow */
+    font-size: 0.8em;
+}

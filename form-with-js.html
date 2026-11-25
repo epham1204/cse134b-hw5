@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name = "view-transition" content = "same-origin">
+  <title>Ethan Pham — Contact Me</title>
+  <link rel="stylesheet" href="personal.css">
+  <script> //Placeholder for third-party analytics script </script>
+  <script src="theme.js"></script>
+  <script src="form.js" defer></script>
+</head>
+<body>
+  <header>
+    <a href="index.html">Ethan Pham</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="form-no-js.html">Contact</a></li>
+        <li><a href="form-with-js.html">Contact(w/JS)</a></li>
+        <li id="theme-control" hidden><button type="button">Switch dark/light</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contact</h1>
+
+    <section>
+      <h2>Send a message</h2>
+      <form action="https://httpbin.org/post" method="post">
+        <input type="hidden" name="possible_bot" value="true">
+        <input type="hidden" id="form-errors" name="form-errors" value="[]">
+
+        <fieldset>
+          <legend>Your info</legend>
+          <label for="name">Name (required)</label>
+          <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required minlength="1" maxlength="100" aria-describedby="name-error">
+          <label for="email">Email (required) - Use a format like name@example.com.</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="Your email address" required aria-describedby="email-error">
+        </fieldset>
+
+        <fieldset>
+          <legend>Message</legend>
+          <label for="comments">Your message (required) - Between 10 and 1,000 characters.</label>
+          <textarea id="comments" name="comments" rows="6" cols="50" placeholder="Write your message here" required minlength="10" maxlength="1000" aria-describedby="comments-info comments-error"></textarea>
+        </fieldset>
+
+        <!-- Both message areas are filled in by form.js and stay hidden without JavaScript -->
+        <div id="form-errors-area" aria-live="polite" hidden>
+          <h3 hidden>Errors to fix</h3>
+          <ul id="error-list">
+            <li id="name-error" hidden></li>
+            <li id="email-error" hidden></li>
+            <li id="comments-error" hidden></li>
+          </ul>
+        </div>
+
+        <div id="form-info-area" hidden>
+          <h3>Message length</h3>
+          <p id="comments-info"></p>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Contact details</h2>
+      <p><b>Email</b><br><a href="mailto:phamtethan@gmail.com">phamtethan@gmail.com</a></p>
+      <p><b>GitHub</b><br><a href="https://github.com">github.com/</a></p>
+      <p><b>LinkedIn</b><br><a href="https://linkedin.com">linkedin.com/</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Ethan Pham</p>
+    <ul>
+      <li><a href="https://github.com/">GitHub</a></li>
+      <li><a href="https://linkedin.com/">LinkedIn</a></li>
+      <li><a href="experiments.html">Experiments</a></li>
+    </ul>
+  </footer>
+
+  <noscript>This site works without JavaScript.</noscript>
+</body>
+</html>

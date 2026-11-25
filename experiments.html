@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name = "view-transition" content = "same-origin">
+  <title>Ethan Pham — Experiments</title>
+  <link rel="stylesheet" href="personal.css">
+  <script> //Placeholder for third-party analytics script </script>
+  <script src="theme.js"></script>
+</head>
+<body>
+  <header>
+    <a href="index.html">Ethan Pham</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="form-no-js.html">Contact</a></li>
+        <li><a href="form-with-js.html">Contact(w/JS)</a></li>
+        <li id="theme-control" hidden><button type="button">Switch to dark theme</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+     <h1>Experiments</h1>
+     <section>
+      <h2>Audio</h2>
+      <audio controls>
+        <source src="audio/oof.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+     </section>
+
+     <section>
+      <h2>Video</h2>
+      <video controls width="400" height="240">
+        <source src="video/waterfall.mp4" type="video/mp4">
+        Your browser does not support the video element.
+      </video>
+     </section>
+
+     <section>
+      <h2>Canvas</h2>
+      <canvas id="demo-canvas" width="200" height="100">A simple canvas drawing.</canvas>
+      <script>
+        const ctx = document.getElementById("demo-canvas").getContext("2d");
+        ctx.fillStyle = "steelblue";
+        ctx.fillRect(10, 10, 80, 80);
+        ctx.strokeStyle = "black";
+        ctx.strokeRect(110, 10, 80, 80);
+      </script>
+     </section>
+
+     <section>
+      <h2>Template</h2>
+      <p>Here is a template that doesn't work because no js.</p>
+      <template id="project-card-template">
+        <article>
+          <h3>Project title</h3>
+          <p>Project summary.</p>
+        </article>
+      </template>
+    </section>
+  </main>
+
+  <footer>
+    <p>Ethan Pham</p>
+    <ul>
+      <li><a href="https://github.com/">GitHub</a></li>
+      <li><a href="https://linkedin.com/">LinkedIn</a></li>
+      <li><a href="experiments.html">Experiments</a></li>
+    </ul>
+  </footer>
+
+  <noscript>This site works without JavaScript.</noscript>
+</body>
+</html>
