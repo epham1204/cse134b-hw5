@@ -1,0 +1,73 @@
+---
+permalink: about.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name = "view-transition" content = "same-origin">
+    <title>Ethan Pham — About Me</title>
+    <link rel="stylesheet" href="personal.css">
+    <script> //Placeholder for third-party analytics script </script>
+    <script src="theme.js"></script>
+</head>
+<body>
+  <header>
+    <a href="index.html">Ethan Pham</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="form-no-js.html">Contact</a></li>
+        <li><a href="form-with-js.html">Contact(w/JS)</a></li>
+        <li id="theme-control" hidden><button type="button">Switch to dark theme</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>About</h1>
+
+    <section>
+        <h2>About Me</h2>
+        <img src="images/placeholder.jpeg" alt="another photo" width="300" height="300">
+        <p>[Detailed explanation of who I am.]</p>
+        <p>Example: I am a Computer Science student at UC San Diego and <strong>I'm looking for a fulltime position as a software engineer</strong>.</p>
+        <p>[More professional paragraph that describes my work experience and ethics.]</p>
+        <p>Example: I like projects where I get to get hands-on and figure out <em>why</em> things work the way they do.</p>
+        <p>[More stuff about who I am outside of my professional life.]</p>
+        <p>Example: I enjoy hiking and playing board games like <i>Memoir 44</i></p>
+    </section>
+
+    <section>
+        <h2>Interests</h2>
+        <ul>
+            <li>[Interest]</li>
+            <li>[Interest]</li>
+            <li>[Interest]</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>What I'm looking for</h2>
+        <p>
+            <span>[Role type]</span><br>
+            <span>[Timeframe]</span><br>
+            <span>[Focus areas]</span><br>
+
+            <span>Example: </span><br>
+            <span><b>Role:</b> Software Engineer</span><br>
+            <span><b>Timeframe:</b> Full-time</span><br>
+            <span><b>Focus Areas:</b> Web Development, UI/UX</span><br>
+        </p>
+        </section>
+  </main>
+
+  {% include "footer.njk" %}
+
+  <noscript>This site works without JavaScript.</noscript>
+</body>
+</html>

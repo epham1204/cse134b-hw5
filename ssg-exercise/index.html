@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name = "view-transition" content = "same-origin">
+  <title>Ethan Pham — Home</title>
+  <link rel="stylesheet" href="personal.css">
+  <link rel="stylesheet" href="fact-viewer.css">
+  <script> //Placeholder for third-party analytics script </script>
+  <script src="theme.js"></script>
+  <script src="fact-viewer.js" defer></script>
+</head>
+<body>
+  <header>
+    <a href="index.html">Ethan Pham</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="form-no-js.html">Contact</a></li>
+        <li><a href="form-with-js.html">Contact(w/JS)</a></li>
+        <li id="theme-control" hidden><button type="button">Switch to dark theme</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <picture>
+        <source srcset="images/placeholder.jpeg" media="(max-width: 600px)">
+        <img src="images/placeholder.jpeg" alt="Headshot of me" width="300" height="900">
+      </picture>
+      <h1>Ethan Pham</h1>
+      <p>[Tagline]</p>
+      <p>
+        <a href="projects.html">View Projects</a>
+        <a href="form-with-js.html">Contact</a>
+      </p>
+    </section>
+
+    <section>
+        <h2>About me</h2>
+        <p>[Short paragraph about me and my interests]</p>
+        <a href="about.html">More about me →</a>
+    </section>
+
+    <section>
+        <h2>Featured Projects</h2>
+        <div>
+          <article>
+            <img src="images/placeholder.jpeg" alt="Screenshot of Project A" width="200" height="200">
+            <h3>[Project title A]</h3>
+            <p>[One-line project blurb.]</p>
+          </article>
+          <article>
+            <img src="images/placeholder.jpeg" alt="Screenshot of Project B" width="200" height="200">
+            <h3>[Project title B]</h3>
+            <p>[One-line project blurb.]</p>
+          </article>
+          <article>
+            <img src="images/placeholder.jpeg" alt="Screenshot of Project C" width="200" height="200">
+            <h3>[Project title C]</h3>
+            <p>[One-line project blurb.]</p>
+          </article>
+        </div>
+    </section>
+
+
+    <section>
+      <button type="button" id="toggle-compact" hidden>Hide details</button>
+      <fact-viewer><noscript>Enable JavaScript to load live facts for this widget.</noscript></fact-viewer>
+    </section>
+  </main>
+
+  {% include "footer.njk" %}
+
+  <noscript>This site works without JavaScript.</noscript>
+</body>
+</html>
