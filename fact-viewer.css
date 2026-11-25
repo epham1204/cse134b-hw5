@@ -1,0 +1,39 @@
+/* fact-viewer.css
+   Styles for the <fact-viewer> component.
+   The page can set these custom properties on fact-viewer:
+     --fact-viewer-background
+     --fact-viewer-text
+     --fact-viewer-border
+   Each one has a fallback, so the component is readable on its own. */
+
+/* custom elements are inline by default; block lets it form a card */
+fact-viewer {
+    display: block;
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--fact-viewer-border, dimgray);
+    border-radius: 0.25em;
+    background-color: var(--fact-viewer-background, white);
+    color: var(--fact-viewer-text, #1f1f1f);
+}
+
+/* the site adds a large top margin to headings; not wanted inside the card */
+fact-viewer h2 {
+    margin-top: 0;
+}
+
+/* status message: slightly smaller than the fact itself */
+fact-viewer [role="status"] {
+    font-size: 1rem;
+}
+
+/* show that the button is busy while a fact is loading */
+fact-viewer button[aria-disabled="true"] {
+    opacity: 0.6;
+    cursor: progress;
+}
+
+/* compact mode: tighter card, on top of the details being hidden by the script */
+fact-viewer[compact] {
+    padding: 0.5rem 1rem;
+}

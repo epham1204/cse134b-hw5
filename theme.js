@@ -32,11 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
   const button = control.querySelector("button");
+  
+  // The label names the theme the button will switch to
+  function updateLabel() {
+    button.textContent =
+      currentTheme === "dark" ? "Switch to light theme" : "Switch to dark theme";
+  }
 
   function switchTheme() {
     currentTheme = currentTheme === "dark" ? "light" : "dark";
     applyTheme(currentTheme);
     saveTheme(currentTheme);
+    updateLabel();
   }
 
   button.addEventListener("click", () => {
@@ -55,8 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("pageshow", () => {
     currentTheme = readSavedTheme();
     applyTheme(currentTheme);
+    updateLabel();
   });
 
   // reveal the control now that it works
+  updateLabel();
   control.hidden = false;
 });

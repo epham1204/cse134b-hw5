@@ -32,6 +32,13 @@
     --color-warning: #ffb74d;
 }
 
+/* pass the site theme colors to the fact viewer component */
+fact-viewer {
+    --fact-viewer-background: var(--color-surface);
+    --fact-viewer-text: var(--color-text);
+    --fact-viewer-border: var(--color-border);
+}
+
 /* top header - not the dialog’s header on contact.html */
 body > header {
     display: flex;

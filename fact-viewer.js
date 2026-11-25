@@ -186,14 +186,54 @@ class FactViewer extends HTMLElement {
 
 customElements.define('fact-viewer', FactViewer);
 
-// Page control: the external button that toggles the compact attribute.
-// Expects <button id="toggle-compact"> and one <fact-viewer> on the page.
+// Page control: the external button that toggles the compact attribute
+// and remembers the choice.
+// Expects <button id="toggle-compact" hidden> and one <fact-viewer> on the page.
+const MODE_KEY = 'hw5-fact-viewer-mode';
+const DEFAULT_MODE = 'expanded';
+
 const toggleButton = document.querySelector('#toggle-compact');
 const viewer = document.querySelector('fact-viewer');
 
+// Read the saved mode. Storage can be blocked, and the saved value could be
+// anything, so fall back to the default unless it is a value we expect.
+function readSavedMode() {
+  try {
+    const saved = localStorage.getItem(MODE_KEY);
+    return saved === 'compact' || saved === 'expanded' ? saved : DEFAULT_MODE;
+  } catch (error) {
+    return DEFAULT_MODE;
+  }
+}
+
+// Save the mode. If storage is blocked the choice still applies on this page.
+function saveMode(mode) {
+  try {
+    localStorage.setItem(MODE_KEY, mode);
+  } catch (error) {
+    console.log('Fact viewer mode could not be saved:', error);
+  }
+}
+
+// One path for both the restored choice and the button: set or remove the
+// observed attribute (the component reacts in attributeChangedCallback),
+// then keep the button label in step.
+function applyMode(mode) {
+  const compact = mode === 'compact';
+  viewer.toggleAttribute('compact', compact);
+  toggleButton.textContent = compact ? 'Show details' : 'Hide details';
+}
+
 if (toggleButton && viewer) {
+  // Restore the saved choice when the page loads.
+  applyMode(readSavedMode());
+
   toggleButton.addEventListener('click', () => {
-    const isCompact = viewer.toggleAttribute('compact');
-    toggleButton.textContent = isCompact ? 'Show details' : 'Hide details';
+    const mode = viewer.hasAttribute('compact') ? 'expanded' : 'compact';
+    applyMode(mode); // apply immediately
+    saveMode(mode);  // then save
   });
+
+  // Reveal the button now that it works (it stays hidden without JavaScript).
+  toggleButton.hidden = false;
 }
