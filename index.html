@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="personal.css">
   <script> //Placeholder for third-party analytics script </script>
   <script src="theme.js"></script>
+  <script src="fact-viewer.js" defer></script>
 </head>
 <body>
   <header>
@@ -20,7 +21,6 @@
         <li><a href="resume.html">Resume</a></li>
         <li><a href="form-no-js.html">Contact</a></li>
         <li><a href="form-with-js.html">Contact(w/JS)</a></li>
-        <script src="theme.js" defer></script>
         <li id="theme-control" hidden><button type="button">Switch to dark theme</button></li>
       </ul>
     </nav>
@@ -36,7 +36,7 @@
       <p>[Tagline]</p>
       <p>
         <a href="projects.html">View Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="form-with-js.html">Contact</a>
       </p>
     </section>
 
@@ -49,22 +49,28 @@
     <section>
         <h2>Featured Projects</h2>
         <div>
-        <article>
+          <article>
             <img src="images/placeholder.jpeg" alt="Screenshot of Project A" width="200" height="200">
             <h3>[Project title A]</h3>
             <p>[One-line project blurb.]</p>
-        </article>
-        <article>
+          </article>
+          <article>
             <img src="images/placeholder.jpeg" alt="Screenshot of Project B" width="200" height="200">
             <h3>[Project title B]</h3>
             <p>[One-line project blurb.]</p>
-        </article>
-        <article>
+          </article>
+          <article>
             <img src="images/placeholder.jpeg" alt="Screenshot of Project C" width="200" height="200">
             <h3>[Project title C]</h3>
             <p>[One-line project blurb.]</p>
-        </article>
+          </article>
         </div>
+    </section>
+
+
+    <section>
+      <button type="button" id="toggle-compact">Hide details</button>
+      <fact-viewer></fact-viewer>
     </section>
   </main>
 
